@@ -4,6 +4,10 @@ document.addEventListener("DOMContentLoaded", function () {
     .addEventListener("click", function (e) {
       if (e.target.classList.contains("discount")) {
         e.preventDefault();
+        document.getElementById("code").innerHTML =
+          e.target.dataset["code"];
+        document.getElementById("title").innerHTML =
+          e.target.dataset["title"];
         document.getElementById("product").innerHTML =
           e.target.dataset["product"];
         bootstrap.Toast.getOrCreateInstance(
@@ -11,4 +15,14 @@ document.addEventListener("DOMContentLoaded", function () {
         ).show();
       }
     });
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key === "Escape") {
+            bootstrap.Toast.getOrCreateInstance(
+                document.getElementById("liveToast")
+            ).hide();
+        }
+    });
+
+    
 });
