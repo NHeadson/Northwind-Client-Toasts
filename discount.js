@@ -18,9 +18,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.addEventListener('keydown', function (e) {
         if (e.key === "Escape") {
-            bootstrap.Toast.getOrCreateInstance(
-                document.getElementById("liveToast")
-            ).hide();
+          e.preventDefault();
+          bootstrap.Toast.getOrCreateInstance(
+              document.getElementById("liveToast")
+          ).hide();
         }
     });
 
